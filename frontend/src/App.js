@@ -1,24 +1,13 @@
-import React,{useState,useEffect} from 'react'
+import React from "react";
 import "./App.css";
-import axios from "axios";
+import Routes from "./Routes";
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 function App() {
-  const [apiData, setApiData] = useState([])
-  useEffect(() => {
-      axios
-        .get("/api/test")
-        .then((response) => {
-          setApiData(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  }, [])
-
   return (
-    <div className="App">
-      <h2>College Suite</h2>
-      {JSON.stringify(apiData)}
-    </div>
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   );
 }
 
