@@ -1,10 +1,14 @@
 import express from "express";
+import cors from "cors";
 import { config } from "dotenv";
 config();
-import appRoutes from "./app/routes/appRoutes.js"
+import appRoutes from "./app/routes/appRoutes.js";
+import authRoutes from "./app/routes/authRoutes.js";
 const app = express();
-appRoutes(app)
-  
+app.use(cors());
+app.use(express.json());
+appRoutes(app);
+authRoutes(app);
 app.get("/", (req, res) => {
   res.send("Backend API");
 });

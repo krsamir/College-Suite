@@ -5,7 +5,6 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
   const cookies = new Cookies();
-  console.log(cookies.get("sid"));
   return (
     <div>
       <Route

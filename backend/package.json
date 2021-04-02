@@ -14,8 +14,13 @@
   "author": "Samir Kumar, Chandan Sharma",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
     "mysql": "^2.18.1"
   },
   "devDependencies": {

@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginScreen from "./component/Authentication/LoginScreen";
-// import ProtectedRoute from "./component/Authentication/Protected";
+import ProtectedRoute from "./component/Authentication/Protected";
 import OwnerHome from "./component/Owner/Home";
 const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={OwnerHome} />
+        <ProtectedRoute path="/" exact component={OwnerHome} />
         <Route path="/login" exact component={LoginScreen} />
 
         <Route
