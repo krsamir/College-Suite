@@ -11,7 +11,6 @@ import Home from "./component/Layout/Home";
 const Routes = () => {
   const cookies = new Cookies();
   const role = cookies.get("rid");
-  console.log(role);
   return (
     <Router>
       <Switch>
