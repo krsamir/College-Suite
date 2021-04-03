@@ -15,8 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 function LoginScreen(props) {
   const [role, setRole] = useState("");
   const [flag, setFlag] = useState(true);
-  const [adminEmail, setAdminEmail] = useState("samir");
-  const [adminPassword, setAdminPassword] = useState("12345");
+  const [adminEmail, setAdminEmail] = useState("admin");
+  const [adminPassword, setAdminPassword] = useState("admin");
   const [ownerEmail, setOwnerEmail] = useState("owner");
   const [ownerPassword, setOwnerPassword] = useState("owner");
   const [studentRegdNo, setStudentRegdNo] = useState("4");
@@ -38,6 +38,7 @@ function LoginScreen(props) {
           if (token !== undefined && token !== "") {
             props.setLoginToken(token);
             props.history.push("/");
+            window.location.reload();
           } else {
             props.history.push("/login");
           }
@@ -65,6 +66,7 @@ function LoginScreen(props) {
             props.setRoleToken("student");
             props.setLoginToken(token);
             props.history.push("/");
+            window.location.reload();
           } else {
             props.history.push("/login");
           }
@@ -84,11 +86,12 @@ function LoginScreen(props) {
         } else if (response.data === "usernotfound") {
           props.ErrorToast("User doest not exist ! Contact Administrator !");
         } else {
-          props.setRoleToken("owner");
           const { token } = response.data;
           if (token !== undefined && token !== "") {
+            props.setRoleToken("owner");
             props.setLoginToken(token);
             props.history.push("/");
+            window.location.reload();
           } else {
             props.history.push("/login");
           }
@@ -111,11 +114,12 @@ function LoginScreen(props) {
         } else if (response.data === "usernotfound") {
           props.ErrorToast("User doest not exist ! Contact Administrator !");
         } else {
-          props.setRoleToken("teacher");
           const { token } = response.data;
           if (token !== undefined && token !== "") {
+            props.setRoleToken("teacher");
             props.setLoginToken(token);
             props.history.push("/");
+            window.location.reload();
           } else {
             props.history.push("/login");
           }

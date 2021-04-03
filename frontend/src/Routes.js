@@ -1,13 +1,34 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Cookies from "universal-cookie";
 import LoginScreen from "./component/Authentication/LoginScreen";
 import ProtectedRoute from "./component/Authentication/Protected";
 import OwnerHome from "./component/Owner/Home";
+import AdminHome from "./component/Admin/Home";
+import TeacherHome from "./component/Teacher/Home";
+import StudentHome from "./component/Student/Home";
+import Home from "./component/Layout/Home";
 const Routes = () => {
+  const cookies = new Cookies();
+  const role = cookies.get("rid");
+  console.log(role);
   return (
     <Router>
       <Switch>
-        <ProtectedRoute path="/" exact component={OwnerHome} />
+        {role === "undefined" && <Route path="/" exact component={Home} />}
+        {role === undefined && <Route path="/" exact component={Home} />}
+        {role === "admin" && (
+          <ProtectedRoute path="/" exact component={AdminHome} />
+        )}
+        {role === "owner" && (
+          <ProtectedRoute path="/" exact component={OwnerHome} />
+        )}
+        {role === "teacher" && (
+          <ProtectedRoute path="/" exact component={TeacherHome} />
+        )}
+        {role === "student" && (
+          <ProtectedRoute path="/" exact component={StudentHome} />
+        )}
         <Route path="/login" exact component={LoginScreen} />
 
         <Route

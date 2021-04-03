@@ -1,7 +1,14 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-const Home = () => {
+import { connect } from "react-redux";
+import { removeToken } from "../../Redux/Actions/TokenAction";
+
+const Home = (props) => {
+  const handleLogout = () => {
+    props.removeToken();
+    window.location.reload();
+  };
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -25,7 +32,7 @@ const Home = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+            <NavDropdown.Item onClick={handleLogout}>Log Out</NavDropdown.Item>
           </NavDropdown>
         </Navbar.Collapse>
       </Navbar>
@@ -33,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default connect(null, { removeToken })(Home);
