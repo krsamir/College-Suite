@@ -4,3 +4,4 @@ export const ERROR_TOAST = "ERROR_TOAST ";
 export const SET_LOGIN_TOKEN = "SET_LOGIN_TOKEN";
 export const SET_ROLE_TOKEN = "SET_ROLE_TOKEN";
 export const REMOVE_TOKEN = "REMOVE_TOKEN";
+export const SET_USER_DETAIL = "SET_USER_DETAIL";

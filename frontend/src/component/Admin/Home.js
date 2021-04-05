@@ -1,9 +1,21 @@
-import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Navbar, Nav, NavDropdown, Card, ListGroup } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { connect } from "react-redux";
 import { removeToken } from "../../Redux/Actions/TokenAction";
+import { adminSummary } from "../../Redux/Actions/UserAction";
 const Home = (props) => {
+  useEffect(() => {
+    props.adminSummary();
+    // axios
+    //   .get("/api/admin")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
+  }, []);
   const handleLogout = () => {
     props.removeToken();
     window.location.reload();
@@ -33,8 +45,20 @@ const Home = (props) => {
           </NavDropdown>
         </Navbar.Collapse>
       </Navbar>
+      <Card style={{ width: "18rem" }}>
+        <ListGroup variant="flush">
+          <LinkContainer to="/notices" style={{ cursor: "pointer" }}>
+            <ListGroup.Item>Latest Notice</ListGroup.Item>
+          </LinkContainer>
+          <LinkContainer to="/notice" style={{ cursor: "pointer" }}>
+            <ListGroup.Item>All Notices</ListGroup.Item>
+          </LinkContainer>
+        </ListGroup>
+      </Card>
     </>
   );
 };
-
-export default connect(null, { removeToken })(Home);
+const mapStateToProps = (state) => ({
+  adminDetails: state.user.data[0],
+});
+export default connect(mapStateToProps, { removeToken, adminSummary })(Home);

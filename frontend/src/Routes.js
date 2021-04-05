@@ -8,6 +8,8 @@ import AdminHome from "./component/Admin/Home";
 import TeacherHome from "./component/Teacher/Home";
 import StudentHome from "./component/Student/Home";
 import Home from "./component/Layout/Home";
+import NoticeBoard from "./component/Layout/NoticeBoard";
+import AllNotice from "./component/Layout/AllNotice";
 const Routes = () => {
   const cookies = new Cookies();
   const role = cookies.get("rid");
@@ -29,7 +31,8 @@ const Routes = () => {
           <ProtectedRoute path="/" exact component={StudentHome} />
         )}
         <Route path="/login" exact component={LoginScreen} />
-
+        <Route path="/notices" exact component={NoticeBoard} />
+        <Route path="/notice" exact component={AllNotice} />
         <Route
           path="*"
           component={() => {

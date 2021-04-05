@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import "./LoginScreen.css";
 import {
   successToast,
@@ -165,9 +166,9 @@ function LoginScreen(props) {
           />
         </label>
       </div>
-      <button className="loginButton" onClick={handleStudentLogin}>
+      <Button className="loginButton" onClick={handleStudentLogin}>
         Login as Student
-      </button>
+      </Button>
     </div>
   );
   const teacherRole = (
@@ -205,9 +206,9 @@ function LoginScreen(props) {
           />
         </label>
       </div>
-      <button className="loginButton" onClick={handleTeacherLogin}>
+      <Button className="loginButton" onClick={handleTeacherLogin}>
         Login as Teacher
-      </button>
+      </Button>
     </div>
   );
   const adminRole = (
@@ -245,9 +246,9 @@ function LoginScreen(props) {
           />
         </label>
       </div>
-      <button className="loginButton" onClick={handleAdminLogin}>
+      <Button className="loginButton" onClick={handleAdminLogin}>
         Login as Admin
-      </button>
+      </Button>
     </div>
   );
 
@@ -286,9 +287,9 @@ function LoginScreen(props) {
           />
         </label>
       </div>
-      <button className="loginButton" onClick={handleOwnerLogin}>
+      <Button className="loginButton" onClick={handleOwnerLogin}>
         Login as Owner
-      </button>
+      </Button>
     </div>
   );
 
@@ -310,41 +311,45 @@ function LoginScreen(props) {
         {role === "admin" && <div>{adminRole}</div>}
         {role === "owner" && <div>{ownerRole}</div>}
         {!flag && (
-          <button className="backButton" onClick={handleBack}>
+          <Button variant="dark" className="backButton" onClick={handleBack}>
             Back
-          </button>
+          </Button>
         )}
       </div>
       {flag && (
         <div className="buttons">
-          <button
+          <Button
+            variant="secondary"
             className="role__button"
             name="student"
             onClick={handleButtonClick}
           >
             Login as Student
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="secondary"
             className="role__button"
             name="teacher"
             onClick={handleButtonClick}
           >
             Login as Teacher
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="secondary"
             className="role__button"
             name="admin"
             onClick={handleButtonClick}
           >
             Login as Admin
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="secondary"
             className="role__button"
             name="owner"
             onClick={handleButtonClick}
           >
             Login as Owner
-          </button>
+          </Button>
           {/* <Link to="/Administrator/login">Login as Administrator</Link> */}
           <Link to="/Administrator/Register">Register as Administrator</Link>
         </div>

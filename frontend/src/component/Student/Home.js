@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Card, ListGroup } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { connect } from "react-redux";
 import { removeToken } from "../../Redux/Actions/TokenAction";
@@ -33,6 +33,16 @@ const Home = (props) => {
           </NavDropdown>
         </Navbar.Collapse>
       </Navbar>
+      <Card style={{ width: "18rem" }}>
+        <ListGroup variant="flush">
+          <LinkContainer to="/notices" style={{ cursor: "pointer" }}>
+            <ListGroup.Item>Latest Notice</ListGroup.Item>
+          </LinkContainer>
+          <LinkContainer to="/notice" style={{ cursor: "pointer" }}>
+            <ListGroup.Item>All Notices</ListGroup.Item>
+          </LinkContainer>
+        </ListGroup>
+      </Card>
     </>
   );
 };
