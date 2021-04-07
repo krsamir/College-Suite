@@ -47,6 +47,9 @@ function CreateNotice(props) {
               noticeTitle: "",
               noticeBody: "",
             });
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           }
         })
         .catch((e) => {
@@ -67,6 +70,7 @@ function CreateNotice(props) {
       <Container>
         <Row className="justify-content-md-center">
           <Col md="8">
+            <h3 style={{ marginBottom: "20px" }}> Create Notice</h3>
             <Form>
               <Form.Label>Title</Form.Label>
               <FormControl
@@ -105,6 +109,7 @@ function CreateNotice(props) {
           style={{ marginTop: "50px" }}
         >
           <Col md="8">
+            <h3 style={{ marginBottom: "20px" }}> Edit / Delete Notice</h3>
             <NoticeTable />
           </Col>
         </Row>

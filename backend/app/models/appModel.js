@@ -1,6 +1,8 @@
 import SQL from "../Database/database.js";
 const Task = () => {};
 const log = console.log;
+var date = new Date();
+var now = date.toLocaleString();
 Task.adminDetails = async (data, result) => {
   let query = `SELECT admin_name,email,organization,role  FROM admin_master where email="${data}"`;
   SQL.query(query, async (err, res) => {
@@ -16,7 +18,7 @@ Task.adminDetails = async (data, result) => {
 Task.createNotice = async (data, result) => {
   const { noticeTitle, noticeBody } = data.body;
   const email = data.user;
-  let query = `INSERT INTO notice (Title, body, created_by) VALUES ("${noticeTitle}", "${noticeBody}","${email}")`;
+  let query = `INSERT INTO notice (Title, body, created_by,last_updated_at) VALUES ("${noticeTitle}", "${noticeBody}","${email}","${now}" )`;
   SQL.query(query, async (err, res) => {
     if (err) {
       console.log(err);
@@ -41,9 +43,7 @@ Task.getNotice = async (data, result) => {
 
 Task.editNotice = async (data, result) => {
   const { id, noticeTitle, noticeBody } = data;
-  var d = new Date();
-  var n = d.toLocaleString();
-  let query = `UPDATE NOTICE SET Title = "${noticeTitle}", BODY="${noticeBody}", last_updated_at="${n}" WHERE (id="${id}")`;
+  let query = `UPDATE NOTICE SET Title = "${noticeTitle}", BODY="${noticeBody}", last_updated_at="${now}" WHERE (id="${id}")`;
   SQL.query(query, async (err, res) => {
     if (err) {
       console.log(err);

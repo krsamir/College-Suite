@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { removeToken } from "../../Redux/Actions/TokenAction";
 
 const NoticeTable = (props) => {
+  console.log(props.update);
   const [notice, setNotice] = useState([]);
   const updateNotice = () => {
     axios
@@ -143,9 +144,15 @@ const NoticeTable = (props) => {
             ))}
         </tbody>
       </Table>
-      <Modal show={show} onHide={handleClose} centered onExit={handleModalExit}>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        centered
+        onExit={handleModalExit}
+        size="lg"
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Edit Notice</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
