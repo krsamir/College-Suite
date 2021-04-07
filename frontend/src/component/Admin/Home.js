@@ -16,6 +16,7 @@ const Home = (props) => {
     //     console.log(e);
     //   });
   }, []);
+
   const handleLogout = () => {
     props.removeToken();
     window.location.reload();
@@ -50,8 +51,8 @@ const Home = (props) => {
           <LinkContainer to="/notices" style={{ cursor: "pointer" }}>
             <ListGroup.Item>Latest Notice</ListGroup.Item>
           </LinkContainer>
-          <LinkContainer to="/notice" style={{ cursor: "pointer" }}>
-            <ListGroup.Item>All Notices</ListGroup.Item>
+          <LinkContainer to="/create-notice" style={{ cursor: "pointer" }}>
+            <ListGroup.Item>Create & Edit Notices</ListGroup.Item>
           </LinkContainer>
         </ListGroup>
       </Card>

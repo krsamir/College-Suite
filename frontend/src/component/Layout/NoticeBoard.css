@@ -3,17 +3,18 @@ body {
 }
 .corners {
   background: #fff;
-  height: 500px;
+  height: 700px;
   margin: 50px auto;
-  max-width: 400px;
+  max-width: 90%;
   line-height: 25px;
   position: relative;
-  width: 80%;
+  width: 90%;
   font-family: arial;
   font-size: 14px;
   font-weight: bold;
   padding: 10px;
   padding-top: 40px;
+  overflow: auto;
   -webkit-box-shadow: 0 1px 7px hsla(0, 0%, 0%, 0.2);
   -moz-box-shadow: 0 1px 7px hsla(0, 0%, 0%, 0.2);
   box-shadow: 0 1px 7px hsla(0, 0%, 0%, 0.2);
@@ -47,4 +48,14 @@ body {
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.titleTag {
+  font-size: large;
+}
+
+.bodyTag {
+  padding-left: 20px;
+  font-weight: normal;
+  font-size: medium;
 }

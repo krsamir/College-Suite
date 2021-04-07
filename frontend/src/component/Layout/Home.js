@@ -35,9 +35,6 @@ const Home = () => {
           <LinkContainer to="/notices" style={{ cursor: "pointer" }}>
             <ListGroup.Item>Latest Notice</ListGroup.Item>
           </LinkContainer>
-          <LinkContainer to="/notice" style={{ cursor: "pointer" }}>
-            <ListGroup.Item>All Notices</ListGroup.Item>
-          </LinkContainer>
         </ListGroup>
       </Card>
     </>

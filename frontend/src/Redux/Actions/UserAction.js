@@ -6,7 +6,6 @@ export const adminSummary = () => async (dispatch) => {
   await axios
     .get("/api/admin")
     .then((response) => {
-      console.log(response);
       dispatch({
         type: SET_USER_DETAIL,
         payload: response.data,
